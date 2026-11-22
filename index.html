@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Counter-Strike 2: Godot Edition — скачати безкоштовно</title>
+<meta name="description" content="CS2 Godot Edition — тактичний шутер на Godot Engine: 6 карт, 12 стволів, гранати, боти з ІІ, мультиплеєр. Безкоштовне скачування для Windows.">
+<style>
+  :root {
+    --bg: #0e1116; --bg2: #161b23; --card: #1c222c; --line: #2a313d;
+    --orange: #f5a623; --orange2: #ff7b1c; --text: #e8e6e3; --muted: #9aa3b2;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.55; }
+  a { color: var(--orange); text-decoration: none; }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+  header { background: var(--bg2); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 10; }
+  header .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; }
+  .logo { font-weight: 800; font-size: 18px; letter-spacing: .5px; }
+  .logo b { color: var(--orange); }
+  header nav a { color: var(--muted); margin-left: 22px; font-size: 14px; }
+  header nav a:hover { color: var(--text); }
+
+  .hero { text-align: center; padding: 72px 20px 56px;
+    background: radial-gradient(ellipse at 50% -20%, #2c3542 0%, var(--bg) 65%); }
+  .hero h1 { font-size: clamp(30px, 5vw, 52px); font-weight: 900; letter-spacing: 1px; }
+  .hero h1 b { color: var(--orange); }
+  .hero p.sub { color: var(--muted); max-width: 640px; margin: 16px auto 30px; font-size: 17px; }
+  .btn { display: inline-block; padding: 15px 42px; border-radius: 8px; font-weight: 700; font-size: 18px;
+    background: linear-gradient(135deg, var(--orange), var(--orange2)); color: #14181e; transition: .15s; }
+  .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(245, 166, 35, .35); }
+  .meta { margin-top: 16px; color: var(--muted); font-size: 13px; }
+  .meta b { color: var(--text); }
+
+  h2 { font-size: 26px; margin-bottom: 22px; padding-left: 12px; border-left: 4px solid var(--orange); }
+  section { padding: 44px 0; }
+  section.alt { background: var(--bg2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+
+  .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
+  .feature { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 18px; }
+  .feature .ico { font-size: 26px; }
+  .feature h3 { font-size: 16px; margin: 8px 0 6px; }
+  .feature p { color: var(--muted); font-size: 14px; }
+
+  .shots { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 14px; }
+  .shot { background: var(--card); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+  .shot img { width: 100%; display: block; }
+  .shot .cap { padding: 10px 14px; font-size: 14px; color: var(--muted); }
+  .shot .cap b { color: var(--text); }
+
+  .weps { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+  .weps .shot img { object-fit: contain; background: #141922; }
+
+  table.spec { width: 100%; border-collapse: collapse; background: var(--card); border-radius: 10px; overflow: hidden; }
+  table.spec td { padding: 12px 16px; border-bottom: 1px solid var(--line); font-size: 15px; }
+  table.spec td:first-child { color: var(--muted); width: 220px; }
+
+  .steps { counter-reset: st; }
+  .steps li { list-style: none; margin: 14px 0; padding-left: 46px; position: relative; }
+  .steps li::before { counter-increment: st; content: counter(st); position: absolute; left: 0; top: -2px;
+    width: 32px; height: 32px; border-radius: 50%; background: var(--orange); color: #14181e;
+    font-weight: 800; display: flex; align-items: center; justify-content: center; }
+
+  .dl-box { text-align: center; background: linear-gradient(135deg, #232b36, #1a2029);
+    border: 1px solid var(--line); border-radius: 14px; padding: 44px 20px; }
+  .dl-box .btn { font-size: 20px; padding: 18px 52px; }
+  .dl-box p { color: var(--muted); margin-top: 14px; font-size: 14px; }
+
+  footer { border-top: 1px solid var(--line); padding: 26px 0; text-align: center; color: var(--muted); font-size: 13px; }
+  footer .warn { color: #e2b93b; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="logo">CS2 <b>GODOT EDITION</b></div>
+    <nav>
+      <a href="#features">Можливості</a>
+      <a href="#screenshots">Скріншоти</a>
+      <a href="#install">Встановлення</a>
+      <a href="#download">Скачати</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <h1>COUNTER-STRIKE 2: <b>GODOT EDITION</b></h1>
+  <p class="sub">Тактичний шутер, зібраний з нуля на Godot Engine 4.7: процедурні карти у стилі CS2,
+     12 стволів із Blender-моделями, гранати, розумні боти, банихоп, мультиплеєр і голосовий чат.</p>
+  <a class="btn" href="https://github.com/kirilpuskaruk-svg/cs2godot-download/releases/latest/download/CS2Godot_v1.0_Windows.zip">⬇ СКАЧАТИ ДЛЯ WINDOWS</a>
+  <p class="meta">Версія <b>1.0</b> · <b>126 МБ</b> · Windows 10/11 x64 · Безкоштовно</p>
+</div>
+
+<section id="features">
+  <div class="wrap">
+    <h2>Можливості</h2>
+    <div class="features">
+      <div class="feature"><div class="ico">🗺️</div><h3>6 карт</h3><p>Sandstorm, Kasbah, Vesuvia, Meltdown, Railyard, Highrise — унікальні текстури й архітектура у кожної.</p></div>
+      <div class="feature"><div class="ico">🔫</div><h3>12 стволів</h3><p>AK-47, M4A1-S, M4A4, AWP, Deagle, Glock-18, USP-S, MP5-SD, FAMAS, Nova, M249 + ніж. Моделі зібрані в Blender.</p></div>
+      <div class="feature"><div class="ico">🧨</div><h3>Гранати</h3><p>HE (осколкова), Flashbang (осліплює ботів), Smoke (дим блокує їхній зір).</p></div>
+      <div class="feature"><div class="ico">🤖</div><h3>Боти з ІІ</h3><p>Патрулюють вулицями, стріляють, кидають гранати, прострілюють двері, реагують на дим і спалахи.</p></div>
+      <div class="feature"><div class="ico">🌐</div><h3>Мультиплеєр</h3><p>Хост/клієнт по ENet (порт 7777), синхронізація руху, чат і голосовий зв'язок [V].</p></div>
+      <div class="feature"><div class="ico">⚙️</div><h3>Налаштування як у CS2</h3><p>Приціл, гучність по шинах, графіка з пресетами, FOV, ліміт FPS — усе зберігається.</p></div>
+      <div class="feature"><div class="ico">🦘</div><h3>Банихоп</h3><p>Розгін стрибками як у CS, ковзання по поверхнях, авто-крок сходи.</p></div>
+      <div class="feature"><div class="ico">💰</div><h3>Маркет скінів</h3><p>Інвентар прив'язаний до маркет-сайту: скіни з сайту з'являються в грі.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="screenshots">
+  <div class="wrap">
+    <h2>Скріншоти карт</h2>
+    <div class="shots">
+      <div class="shot"><img src="screenshots/sandstorm.jpg" alt="Sandstorm"><div class="cap"><b>Sandstorm</b> — пісочна класика з дверима на міді</div></div>
+      <div class="shot"><img src="screenshots/kasbah.jpg" alt="Kasbah"><div class="cap"><b>Kasbah</b> — марокканський палац, сині двері</div></div>
+      <div class="shot"><img src="screenshots/vesuvia.jpg" alt="Vesuvia"><div class="cap"><b>Vesuvia</b> — італійська бруківка</div></div>
+      <div class="shot"><img src="screenshots/meltdown.jpg" alt="Meltdown"><div class="cap"><b>Meltdown</b> — промзона, асфальт і hazard-стрічка</div></div>
+      <div class="shot"><img src="screenshots/railyard.jpg" alt="Railyard"><div class="cap"><b>Railyard</b> — депо з іржавими вагонами</div></div>
+      <div class="shot"><img src="screenshots/highrise.jpg" alt="Highrise"><div class="cap"><b>Highrise</b> — будівельний майданчик висотки</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="weapons">
+  <div class="wrap">
+    <h2>Зброя (Blender-моделі з процедурними текстурами)</h2>
+    <div class="weps">
+      <div class="shot"><img src="screenshots/wep_ak47.jpg" alt="AK-47"><div class="cap"><b>AK-47</b> — дерев'яна цевка з зерном</div></div>
+      <div class="shot"><img src="screenshots/wep_awp.jpg" alt="AWP"><div class="cap"><b>AWP</b> — зелений полімер, оптика</div></div>
+      <div class="shot"><img src="screenshots/wep_nova.jpg" alt="Nova"><div class="cap"><b>Nova</b> — помповий дробовик, 9 дробин</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="install">
+  <div class="wrap">
+    <h2>Встановлення</h2>
+    <ol class="steps">
+      <li>Скачай архів кнопкою нижче (~126 МБ)</li>
+      <li>Розпакуй усі файли в одну папку (exe + pck разом!)</li>
+      <li>Запусти <b>CS2Godot.exe</b> — і граєш</li>
+    </ol>
+    <table class="spec">
+      <tr><td>ОС</td><td>Windows 10 / 11 (x64)</td></tr>
+      <tr><td>Відеокарта</td><td>Будь-яка з DirectX 11 (тестовано на AMD RX 580)</td></tr>
+      <tr><td>ОЗУ</td><td>4 ГБ</td></tr>
+      <tr><td>Місце</td><td>~300 МБ після розпакування</td></tr>
+      <tr><td>Мультиплеєр</td><td>Один гравець створює гру (порт 7777), інші вводять його IP</td></tr>
+    </table>
+  </div>
+</section>
+
+<section id="download">
+  <div class="wrap">
+    <div class="dl-box">
+      <h2 style="border:none; padding:0;">Скачати гру</h2>
+      <p style="margin-bottom:22px;">Остання версія — безкоштовно, без реєстрації</p>
+      <a class="btn" href="https://github.com/kirilpuskaruk-svg/cs2godot-download/releases/latest/download/CS2Godot_v1.0_Windows.zip">⬇ СКАЧАТИ (v1.0, 126 МБ)</a>
+      <p>Всі релізи: <a href="https://github.com/kirilpuskaruk-svg/cs2godot-download/releases">github.com/kirilpuskaruk-svg/cs2godot-download/releases</a></p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>CS2 Godot Edition — фанатський проєкт на Godot Engine 4.7. Не пов'язаний з Valve Corporation.</p>
+    <p class="warn">⚠ Антивірус може лаятись на невідомий exe — це нормально для ігор на Godot, додай у винятки.</p>
+    <p>© 2026 kirilpuskaruk-svg</p>
+  </div>
+</footer>
+
+</body>
+</html>
